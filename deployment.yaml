@@ -14,7 +14,7 @@ spec:
       serviceAccountName: sql-demo-ksa
       containers:
       - name: pomodolist-be
-        image: uscentral-1docker.pkg.dev/sql-demo-project-362810/pomodolist-backend:latest
+        image: us-central1-docker.pkg.dev/sql-demo-project-362810/pomodolist-backend/pomodolist-backend-image:tag1
         ports:
         - containerPort: 8001
         env:
