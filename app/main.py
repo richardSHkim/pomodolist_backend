@@ -9,6 +9,23 @@ app = FastAPI()
 app.include_router(schedule.router)
 
 
+origins = [
+    "http://localhost:3000",
+    "http://pomodolist.com",
+    "https://pomodolist.com",
+    "http://www.pomodolist.com",
+    "https://www.pomodolist.com",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 create_tables()
 
 
