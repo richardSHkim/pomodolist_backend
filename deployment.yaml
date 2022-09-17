@@ -16,7 +16,7 @@ spec:
       - name: pomodolist-be
         image: uscentral-1docker.pkg.dev/sql-demo-project-362810/pomodolist-backend:latest
         ports:
-        - containerPort: 8000
+        - containerPort: 8001
         env:
         - name: DB_USER
           valueFrom:
