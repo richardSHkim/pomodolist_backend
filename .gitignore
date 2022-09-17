@@ -1,0 +1,14 @@
+# virtualenv
+.venv*
+venv*/
+ENV*/
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
