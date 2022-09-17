@@ -1,7 +1,8 @@
+import os
 import psycopg2
 
 
-conn = psycopg2.connect(host="localhost", dbname="pomodolist_db", user="postgres", password="0721")
+conn = psycopg2.connect(host="localhost", dbname=os.environ["DB_NAME"], user=os.environ["DB_USER"], password=os.environ["DB_PASS"])
 
 
 def create_tables():
