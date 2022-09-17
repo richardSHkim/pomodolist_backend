@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: pomodolist-backend
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: pomodolist-backend-app
@@ -11,7 +12,6 @@ spec:
       labels:
         app: pomodolist-backend-app
     spec:
-      replicas: 1
       serviceAccountName: sql-demo-ksa
       containers:
       - name: pomodolist-be
