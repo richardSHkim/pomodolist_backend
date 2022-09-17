@@ -12,34 +12,34 @@ spec:
       labels:
         app: pomodolist-backend-app
     spec:
-      serviceAccountName: sql-demo-ksa
+      serviceAccountName: pomodolist-ksa
       containers:
       - name: pomodolist-be
-        image: us-central1-docker.pkg.dev/sql-demo-project-362810/pomodolist-backend/pomodolist-backend-image:tag1
+        image: us-central1-docker.pkg.dev/pomodolist-362812/pomodolist/pomodolist-backend-image:tag1
         ports:
         - containerPort: 8001
         env:
         - name: DB_USER
           valueFrom:
             secretKeyRef:
-              name: sql-demo-secret
+              name: pomodolist-be-secrets
               key: username
         - name: DB_PASS
           valueFrom:
             secretKeyRef:
-              name: sql-demo-secret
+              name: pomodolist-be-secrets
               key: password
         - name: DB_NAME
           valueFrom:
             secretKeyRef:
-              name: sql-demo-secret
+              name: pomodolist-be-secrets
               key: database
       - name: cloud-sql-proxy
         image: gcr.io/cloudsql-docker/gce-proxy:1.32.0
         command:
           - "/cloud_sql_proxy"
           - "-log_debug_stdout"
-          - "-instances=sql-demo-project-362810:us-central1:sql-demo=tcp:5432"
+          - "-instances=spomodolist-362812:us-central1:pomodolist-sql=tcp:5432"
         securityContext:
           # The default Cloud SQL proxy image runs as the
           # "nonroot" user and group (uid: 65532) by default.
