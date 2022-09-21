@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from app.routers import schedule
+from app.routers import schedule, todolist
 from app.database import create_tables
 
 
 app = FastAPI()
 app.include_router(schedule.router)
+app.include_router(todolist.router)
 
 
 origins = [
