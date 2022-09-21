@@ -15,7 +15,7 @@ spec:
       serviceAccountName: pomodolist-ksa
       containers:
       - name: pomodolist-be
-        image: us-central1-docker.pkg.dev/pomodolist-362812/pomodolist/pomodolist-backend-image:tag1
+        image: us-central1-docker.pkg.dev/pomodolist-362812/pomodolist/pomodolist-backend-image:1.1.0
         ports:
         - containerPort: 8001
         env:
